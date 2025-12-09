@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anike Hasan – Portfolio & CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Personal portfolio & online CV of Anike Hasan" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --bg-card: #050816;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14, 165, 233, 0.12);
+      --accent-2: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.4);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.85);
+      --transition: 0.25s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top left, #1f2937 0, transparent 50%),
+        radial-gradient(circle at bottom right, #020617 0, #020617 55%);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-thumb { background: #111827; border-radius: 999px; }
+
+    .shell {
+      max-width: 1180px;
+      margin: 32px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    /* ===== LEFT SIDEBAR ===== */
+    .sidebar {
+      position: sticky;
+      top: 22px;
+      height: max-content;
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 18px 18px;
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .brand-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.9);
+    }
+
+    .profile-block { display: flex; flex-direction: column; gap: 12px; }
+
+    .avatar {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #020617;
+      position: relative;
+    }
+
+    .avatar img {
+      display: block;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .avatar-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .avatar-tag span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(14, 165, 233, 1);
+    }
+
+    .name { font-size: 22px; font-weight: 600; }
+    .title { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+    .mini-bio {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .meta-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+
+    .meta-pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: radial-gradient(circle, rgba(148, 163, 184, 0.9), transparent);
+      opacity: 0.65;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .contact-key { color: var(--muted); }
+    .contact-val { text-align: right; font-weight: 400; }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .social-chip {
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .social-chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(248, 250, 252, 0.9);
+    }
+
+    .primary-btn {
+      margin-top: 2px;
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      background: linear-gradient(120deg, #22c55e, #16a34a);
+      color: #ecfdf5;
+      box-shadow: 0 18px 40px rgba(21, 128, 61, 0.8);
+      transition: var(--transition);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 24px 60px rgba(22, 163, 74, 0.95);
+    }
+
+    .secondary-btn {
+      margin-top: 6px;
+      width: 100%;
+      border-radius: 999px;
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .secondary-btn:hover {
+      border-color: rgba(248, 250, 252, 0.85);
+      color: var(--text);
+    }
+
+    /* ===== RIGHT CONTENT AREA ===== */
+    .main {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.16), rgba(15, 23, 42, 0.96));
+      box-shadow: var(--shadow-soft);
+      padding: 20px 20px 24px;
+      backdrop-filter: blur(18px);
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+      padding-bottom: 10px;
+    }
+
+    .top-title { font-size: 15px; color: var(--muted); }
+
+    .top-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .tab-link {
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      color: var(--muted);
+      transition: var(--transition);
+    }
+
+    .tab-link:hover {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text);
+    }
+
+    .tab-link.active {
+      background: var(--accent-soft);
+      border-color: rgba(14, 165, 233, 0.9);
+      color: #e0f2fe;
+    }
+
+    .section {
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(31, 41, 55, 0.8);
+    }
+
+    .section:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title { font-size: 16px; font-weight: 500; }
+    .section-kicker { font-size: 12px; color: var(--muted); }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .full-width { grid-column: 1 / -1; }
+
+    .card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 12px 12px 12px;
+      font-size: 13px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.16), transparent 55%);
+      opacity: 0.85;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .card-inner { position: relative; }
+
+    .card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .pill-inline {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .timeline { position: relative; padding-left: 18px; }
+    .timeline-line {
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(148, 163, 184, 0.7), transparent);
+    }
+
+    .timeline-item { position: relative; padding-bottom: 10px; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -1px;
+      top: 3px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #020617;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 16px rgba(14, 165, 233, 1);
+    }
+
+    .timeline-title { font-size: 14px; font-weight: 500; }
+    .timeline-meta { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .skill-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .skill-bar {
+      flex: 1;
+      height: 4px;
+      border-radius: 999px;
+      background: #020617;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0ea5e9, #22c55e);
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 960px) {
+      .shell { grid-template-columns: minmax(0, 1fr); }
+      .sidebar { position: static; order: 1; }
+      .main { order: 2; }
+    }
+
+    @media (max-width: 640px) {
+      .main { padding: 16px 14px 18px; }
+      .section-grid { grid-template-columns: minmax(0, 1fr); }
+      .top-nav { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <!-- ========== LEFT SIDEBAR ========== -->
+    <aside class="sidebar">
+      <div class="brand-pill">
+        <span class="brand-dot"></span>
+        Open to full-time opportunities
+      </div>
+
+      <div class="profile-block">
+        <!-- image file: anike-hasan.jpg same folder e rakho -->
+        <div class="avatar">
+          <img src="anike.jpg" alt="Anike Hasan – profile photo" />
+          <div class="avatar-tag">
+            <span></span>
+            Ready to contribute & grow
+          </div>
+        </div>
+
+        <div>
+          <div class="name">Anike Hasan</div>
+          <div class="title">Computer Enginner •International Networker</div>
+        </div>
+
+        <p class="mini-bio">
+          Motivated and dedicated individual with a background in Computer Science and hands-on
+          experience in DXN network marketing. Skilled in communication, leadership and customer
+          handling, with a strong focus on long-term professional growth.
+        </p>
+
+        <div class="meta-pills">
+          <span class="meta-pill">📍 Mirpur-6, Dhaka, Bangladesh</span>
+          <span class="meta-pill">🎓 B.Sc. in CSE (Running)</span>
+          <span class="meta-pill">⭐ Direct Selling Business</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- CONTACT INFO -->
+      <div>
+        <div class="section-label" style="margin-bottom:6px;">Contact</div>
+
+        <div class="contact-list">
+          <div class="contact-row">
+            <span class="contact-key">Mobile</span>
+            <span class="contact-val">01723965511</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">WhatsApp</span>
+            <span class="contact-val">+8801723965511</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Email</span>
+            <span class="contact-val">anikehasan2580@gmail.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Address</span>
+            <span class="contact-val">Mirpur-6, Lane-1, Block-B, House 29, Dhaka</span>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <!-- chaile porer e real link boshao -->
+          <a class="social-chip" href="#" target="_blank">LinkedIn</a>
+          <a class="social-chip" href="#" target="_blank">Facebook</a>
+          <a class="social-chip" href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- MAIN CTA BUTTONS -->
+      <div>
+        <a href="https://wa.me/8801723965511" target="_blank">
+          <button class="primary-btn">
+            💬 Message on WhatsApp
+          </button>
+        </a>
+
+        <button class="secondary-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          📄 View full details & CV
+        </button>
+      </div>
+    </aside>
+
+    <!-- ========== RIGHT CONTENT ========== -->
+    <main class="main">
+      <!-- TOP MINI NAV -->
+      <div class="top-nav">
+        <div class="top-title">
+         <strong>Anike Hasan</strong>
+        </div>
+        <div class="top-tabs">
+          <a href="#about" class="tab-link active">About</a>
+          <a href="#objective" class="tab-link">Career Objective</a>
+          <a href="#experience" class="tab-link">Experience</a>
+          <a href="#education" class="tab-link">Education</a>
+          <a href="#skills" class="tab-link">Skills</a>
+          <a href="#certifications" class="tab-link">Certifications</a>
+          <a href="#contact" class="tab-link">Contact</a>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="section-header">
+          <div class="section-title">About Me</div>
+          <div class="section-kicker">Short overview</div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card full-width">
+            <div class="card-inner">
+              <p class="card-body">
+                I am a motivated and dedicated individual with a strong background in Computer Science
+                and practical experience in DXN network marketing. I have completed a Diploma in
+                Computer Science & Engineering and am currently pursuing a B.Sc. in Computer Science &
+                Engineering at Southeast University.
+                <br /><br />
+                Through my role as a DXN Star Diamond Achiever, I have developed leadership, public
+                speaking, customer handling and team management skills. I am eager to apply both my
+                technical knowledge and soft skills in a professional environment, contribute to
+                organizational success and grow continuously.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAREER OBJECTIVE -->
+      <section class="section" id="objective">
+        <div class="section-header">
+          <div class="section-title">Career Objective</div>
+          <div class="section-kicker">What I am aiming for</div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card full-width">
+            <div class="card-inner">
+              <p class="card-body">
+                Motivated and dedicated individual seeking any suitable full-time job where I can apply
+                my technical knowledge, communication abilities, and leadership skills. I aim to
+                contribute effectively to the organization and achieve long-term professional growth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="section-header">
+          <div class="section-title">Work Experience</div>
+          <div class="section-kicker">Practical work & responsibilities</div>
+        </div>
+
+        <div class="section-grid">
+          <article class="card full-width">
+            <div class="card-inner">
+              <div class="card-label">Network Marketing</div>
+              <div class="card-title">Distributor – </div>
+              <div class="card-meta">DXN • Team size: 500+ Business Partner </div>
+              <p class="card-body">
+                • Managed and motivated a team .<br />
+                • Provided training on product knowledge and sales strategies.<br />
+                • Achieved Star Diamond rank through consistent networking and leadership.<br />
+                • Built strong communication and persuasion skills.<br />
+                • Maintained customer relationships and handled product distribution.
+              </p>
+              <div class="tag-cloud">
+                <span class="tag">Leadership</span>
+                <span class="tag">Team Management</span>
+                <span class="tag">Customer Handling</span>
+                <span class="tag">Sales Training</span>
+                <span class="tag">Networking</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section" id="education">
+        <div class="section-header">
+          <div class="section-title">Educational Background</div>
+          <div class="section-kicker">Academic journey</div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card full-width">
+            <div class="card-inner">
+              <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item">
+                  
+                  <div class="timeline-title">B.Sc. in Computer Science & Engineering (Running)</div>
+                  <div class="timeline-meta">Southeast University • Present</div>
+                  <div class="card-body">
+                    Currently studying core computer science concepts, including programming, algorithms,
+                    data structures, web technologies and software engineering.
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  
+                  <div class="timeline-title">Diploma in Computer Science & Engineering</div>
+                  <div class="timeline-meta">
+                    Ahsanullah Institute of Technical and Vocational Education & Training
+                  </div>
+                  <div class="card-body">
+                    Completed a diploma focused on computer fundamentals, hardware & software
+                    troubleshooting, and practical lab-based learning.
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <!-- <div class="timeline-dot"></div> -->
+                  <div class="timeline-title">SSC</div>
+                  <div class="timeline-meta">
+                    Bamni Adarsho High School, Raipur, Lakshmipur • 2019
+                  </div>
+                  <div class="card-body">
+                    Completed Secondary School Certificate with a strong base in general education and
+                    discipline, forming the foundation of my academic journey.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <div class="section-header">
+          <div class="section-title">Skills</div>
+          <div class="section-kicker">Technical & soft skills</div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-label">Technical Skills</div>
+              <div class="card-title">Programming & Tools</div>
+
+              <div class="skill-row">
+                <span>C / C++ </span>
+                <span>Intermediate</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 70%;"></div>
+              </div>
+              <div class="skill-row">
+                <span>Java / Android Apps</span>
+                <span>Good</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%;"></div>
+              </div>
+
+              <div class="skill-row">
+                <span>HTML, CSS</span>
+                <span>Good</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 80%;"></div>
+              </div>
+
+              <div class="skill-row">
+                <span>Hardware & Software Maintenance</span>
+                <span>Good</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 75%;"></div>
+              </div>
+
+              <div class="skill-row">
+                <span>MS Office</span>
+                <span>Working</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 70%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-label">Soft Skills & Languages</div>
+              <div class="card-title">People & communication</div>
+              <div class="tag-cloud">
+                <span class="tag">Communication</span>
+                <span class="tag">Leadership</span>
+                <span class="tag">Teamwork</span>
+                <span class="tag">Public Speaking</span>
+                <span class="tag">Time Management</span>
+                <span class="tag">Customer Handling</span>
+                <span class="tag">Problem-Solving</span>
+              </div>
+
+              <div style="margin-top:10px;" class="card-body">
+                <strong>Languages</strong><br />
+                • Bangla – Native<br />
+                • English – Intermediate
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section class="section" id="certifications">
+        <div class="section-header">
+          <div class="section-title">Certifications</div>
+          <div class="section-kicker">Courses & trainings</div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-label">IT & Technical</div>
+              <div class="card-title">Basic IT Training</div>
+              <p class="card-body">
+                Gained foundational knowledge in computer operations, office applications and basic IT
+                concepts to support daily work and studies.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-label">Leadership</div>
+              <div class="card-title">Leadership & Communication Training (DXN)</div>
+              <p class="card-body">
+                Training focused on communication, leadership, public speaking and team motivation
+                within the DXN business structure.
+              </p>
+            </div>
+          </div>
+
+          <div class="card full-width">
+            <div class="card-inner">
+              <div class="card-label">Business</div>
+              <div class="card-title">Business Development Essentials</div>
+              <p class="card-body">
+                Learned the essentials of business development, goal setting, planning, and building
+                sustainable customer and team relationships.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERSONAL INFO & HOBBIES -->
+      <section class="section" id="personal">
+        <div class="section-header">
+          <div class="section-title">Personal Information & Interests</div>
+          <div class="section-kicker">Who I am beyond work</div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-label">Personal Information</div>
+              <p class="card-body">
+                • Name: Anike Hasan<br />
+                • Father’s Name: Md. Osman Gani<br />
+                • Mother’s Name: Moriom Bagam<br />
+                • Date of Birth: 13 October 2003<br />
+                • Gender: Male<br />
+                • Religion: Islam<br />
+                • Blood Group: A+<br />
+                • Marital Status: Unmarried<br />
+                • Nationality: Bangladeshi <br>
+                • Present Address: Mirpur-6,Len-1,Block-B,Dhaka-1216 <br>
+                • Parmanent Address:7no Bamni Bhuiyan Hat ,Raipur-Lakshmipur
+
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-label">Hobbies & Interests</div>
+              <p class="card-body">
+                • Technology & Gadgets<br />
+                • Networking & Public Speaking<br />
+                • Learning New Skills<br />
+                • Motivating & Training People
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="section-header">
+          <div class="section-title">Contact & Availability</div>
+          <div class="section-kicker">Let’s get in touch</div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card full-width">
+            <div class="card-inner">
+              <p class="card-body">
+                I am open to full-time job opportunities, internships, and professional collaborations.
+                You can contact me via mobile, WhatsApp, or email. I am willing to learn, adapt and give
+                my best effort to contribute to your organization.
+              </p>
+
+              <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
+                <a href="https://wa.me/8801723965511" target="_blank" style="text-decoration:none;">
+                  <span class="pill-inline" style="background:var(--accent-soft);border-color:rgba(14,165,233,0.9);color:#e0f2fe;">
+                    💬 WhatsApp: +8801723965511
+                  </span>
+                </a>
+
+                <span class="pill-inline">
+                  ✉ Email: anikehasan2580@gmail.com
+                </span>
+
+                <span class="pill-inline">
+                  📞 Mobile: 01723965511
+                </span>
+
+                <span class="pill-inline">
+                  📍 Address: Mirpur-6, Lane-1, Block-B, House 29, Dhaka
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>© <span id="year"></span> Anike Hasan</span>
+        <span>Designed & coded as a personal portfolio & CV.</span>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll(".tab-link").forEach(link => {
+      link.addEventListener("click", () => {
+        document.querySelectorAll(".tab-link").forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
